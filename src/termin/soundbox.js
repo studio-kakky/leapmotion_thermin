@@ -2,11 +2,13 @@ class SoundBox{
 	constructor( ctx, freq = 440, gain = 0.5 ){
 		if( ctx ){
 			this._ctx = ctx;
-			this._oscillator1 = this._ctx.createOscillator();
+			this._node1 = this._ctx.createOscillator();
+			this._node2 = this._ctx.createOscillator();
+			this._
 			this._gohstnote = this._ctx.createOscillator();
 			this._gainNode = this._ctx.createGain();
 
-			this._oscillator1.connect( this._gainNode );
+			this._node1.connect( this._gainNode );
 			
 			this._baseFrequency = freq;
 			this.frequency = freq;
@@ -22,11 +24,11 @@ class SoundBox{
 	}
 
 	start( ){
-		this._oscillator1.start();
+		this._node1.start();
 	}
 
 	stop( ){
-		this._oscillator1.stop();
+		this._node1.stop();
 	}
 
 	set gain( value ){
@@ -34,11 +36,11 @@ class SoundBox{
 	}
 
 	set frequency( value ){
-		this._oscillator1.frequency.value = value;
+		this._node1.frequency.value = value;
 	}
 	
 	get frequency(){
-		return this._oscillator1.frequency.value;
+		return this._node1.frequency.value;
 	}
 
 	get baseFreq(){
