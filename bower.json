@@ -1,0 +1,19 @@
+{
+  "name": "termin2",
+  "version": "0.0.0",
+  "authors": [
+    "柿内暢昌 <nob@studio-kakky.com>"
+  ],
+  "description": "リープモーションのテルミン",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
