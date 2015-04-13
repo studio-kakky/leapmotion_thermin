@@ -4,9 +4,7 @@ $(window).ready(function(){
 	mysoundBox.node.connect( audioContext.destination );
 	mysoundBox.start();
 	$("html").mousemove(function(e){
-		//console.log(e.clientX);
-		//console.log(  )
-		mysoundBox.frequency = mysoundBox.baseFreq + e.clientX/10;
+		mysoundBox.frequency = mysoundBox.baseFreq + e.clientX/5;
 	})
 	
 })
