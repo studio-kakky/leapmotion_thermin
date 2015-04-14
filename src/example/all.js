@@ -10,7 +10,7 @@ $(window).ready(function(){
 	
 	mysoundBox.start();
 	$("html").mousemove(function(e){
-		mysoundBox.frequency = mysoundBox.baseFreq + e.clientX/5;
+		mysoundBox.frequency = mysoundBox.baseFreq + e.clientX/2;
+		$("#frequency").text(mysoundBox.frequency);
 	})
-
 })
