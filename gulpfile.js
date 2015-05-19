@@ -31,10 +31,7 @@ gulp.task("build:termin",['clean:dist'],function(){
 gulp.task("build:example",function(){
     return gulp.src(['src/example/**/*.js'])
         .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
-        .pipe(sourcemaps.init())
         .pipe(babel())
-        .pipe(concat('example.js'))
-        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist/'))
         .pipe(reload({stream:true})); 
 })
