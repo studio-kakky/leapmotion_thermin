@@ -9,15 +9,13 @@ class LeapController{
 
 	startTracking(){
 
-		Leap.loop((frame)=>{
-
+		Leap.loop((frame)=> {
 			var l = frame.hands.length;
 			if( l > 2) l = 2;
 			for( var i =0; i < l; i++){
 				this.setData( frame.hands[i] );
 			}
-
-		})
+		});
 
 	}
 

@@ -11,14 +11,15 @@ class SoundBox{
 			this._node1Gain = this._ctx.createGain();
 			this._node2Gain = this._ctx.createGain();
 			this._node3Gain = this._ctx.createGain();
-			
+
 
 			this._lfo = this._ctx.createOscillator();
 			this._vcf = this._ctx.createBiquadFilter();
 
 			this._vcfGain = this._ctx.createGain();
 			this._masterGain = this._ctx.createGain();
-
+			this._controleGain = this._ctx.createGain();
+			this._controleGain.gain.value = 1;
 
 			this._node1.connect(this._node1Gain);
 			this._node2.connect(this._node2Gain);
@@ -35,12 +36,13 @@ class SoundBox{
 			this._lfo.connect( this._node3.detune )
 			this._lfo.connect( this._vcf.detune );
 			this._vcf.connect( this._vcfGain );
-			this._vcfGain.connect( this._masterGain );
+			this._vcfGain.connect( this._controleGain );
+			this._controleGain.connect( this._masterGain );
 
 			this._node2.type = "sawtooth";
 			this._node3.type = "square";
-			this._node2Gain.gain.value = 0.3;
-			this._node3Gain.gain.value = 0.3;
+			this._node2Gain.gain.value = 0;
+			this._node3Gain.gain.value = 0;
 
 			this._node2.detune.value = -35
 			this._node3.detune.value = -35
@@ -48,13 +50,13 @@ class SoundBox{
 			this._vcf.frequency.value = 50;
 
 
-						
 
 
-			
+
+
 			this._baseFrequency = freq;
 			this.frequency = freq;
-			this._vcfGain.gain.value = 4
+			this._vcfGain.gain.value = 2
 
 			this.gain = gain;
 
@@ -79,7 +81,7 @@ class SoundBox{
 	}
 
 	set gain( value ){
-		this._masterGain.gain.value = value*30; 
+		this._controleGain.gain.value = value;
 	}
 
 	set frequency( value ){
@@ -87,7 +89,7 @@ class SoundBox{
 		this._node2.frequency.value = value;
 		this._node3.frequency.value = value;
 	}
-	
+
 	get frequency(){
 		return this._node1.frequency.value;
 	}

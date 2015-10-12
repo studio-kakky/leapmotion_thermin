@@ -25,7 +25,7 @@ gulp.task("build:termin",['clean:dist'],function(){
         .pipe(babel())
         .pipe(concat('termin.js'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/')); 
+        .pipe(gulp.dest('dist/'));
 })
 
 gulp.task("build:example",function(){
@@ -33,7 +33,7 @@ gulp.task("build:example",function(){
         .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
         .pipe(babel())
         .pipe(gulp.dest('dist/'))
-        .pipe(reload({stream:true})); 
+        .pipe(reload({stream:true}));
 })
 
 gulp.task('browser-sync', function() {
@@ -41,7 +41,7 @@ gulp.task('browser-sync', function() {
         server: {
             baseDir: './'
         },
-        startPath: 'example/'
+        startPath: 'example/hand.html'
     });
 });
 
@@ -60,5 +60,3 @@ gulp.task("default",function(){
 		"build",'browser-sync','watch'
 	)
 })
-
-

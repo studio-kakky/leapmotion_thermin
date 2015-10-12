@@ -5,7 +5,7 @@ class Distortion{
 		this._input = this._ctx.createWaveShaper();
 		this._gain = this._ctx.createGain();
 		this._input.connect( this._gain )
-		this.gain = 0.8;
+		this.gain = 0.3;
 		this._input.curve = this._createCurve();
 	}
 
@@ -18,7 +18,7 @@ class Distortion{
 		for( var i = 0; i < sampling_num; i++){
 			var x = ( ( (i -0) * ( 1 - (-1) ) ) / (sampling_num - 0) ) -1;
 			curves[i] = ( (1+k) * x ) / (1 + k * Math.abs(x) );
-			
+
 		}
 		return curves;
 
@@ -40,7 +40,7 @@ class Distortion{
 		return this._gain.gain.value
 	}
 
-	
+
 
 
 }
